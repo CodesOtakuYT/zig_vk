@@ -1,0 +1,9 @@
+{
+  "vk handle creator": {
+    "prefix": "vkchandle",
+    "body": [
+      "    fn create_$0(self: Self, info: c.Vk$1CreateInfo, allocation_callbacks: ?*c.VkAllocationCallbacks) $1 {\n        var handle: c.Vk$1 = undefined;\n        try map_vk_error(self.dispatch.Create$1(self.handle, &info, allocation_callbacks, &handle));\n        errdefer self.dispatch.Destroy$1(self.handle, handle, allocation_callbacks);\n        return .{\n            .device = self,\n            .handle = handle,\n            .allocation_callbacks = allocation_callbacks,\n        };\n    }"
+    ],
+    "description": "zig"
+  }
+}
